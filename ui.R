@@ -136,6 +136,7 @@ report.source <- reactive({
 data("peerj32")
 peerj32 <- peerj32$phyloseq
 
+
 # UI
 ui <- dashboardPage(
   dashboardHeader(title = "Biome-shiny v0.8-SC-Local"),
