@@ -131,14 +131,14 @@ report.source <- reactive({
 
 
 # Load sample datasets #
-data("dietswap")
-data("atlas1006")
+#data("dietswap")
+#data("atlas1006")
 data("peerj32")
 peerj32 <- peerj32$phyloseq
 
 # UI
 ui <- dashboardPage(
-  dashboardHeader(title = "Biome-shiny v0.8"),
+  dashboardHeader(title = "Biome-shiny v0.8-SC-Local"),
   dashboardSidebar(
     sidebarMenu(
       br(),
@@ -190,7 +190,7 @@ ui <- dashboardPage(
           "datasetChoice",
           "Dataset Upload",
           c("Upload dataset", "Use sample dataset"),
-          selected = "Upload dataset"
+          selected = "Use sample dataset"
         ),
         conditionalPanel( condition = "input.datasetChoice == 'Upload dataset'",
                           radioButtons("datasetType", "Select dataset characteristics:", c(".biom file including sample variables",".biom file with .csv metadata file",".biom file without .csv metadata file"))
@@ -232,7 +232,8 @@ ui <- dashboardPage(
           selectInput(
             "datasetSample",
             "Choose a sample dataset:",
-            choices = c("dietswap", "atlas1006", "peerj32")
+            #choices = c("dietswap", "atlas1006", "peerj32")
+            choices = c("peerj32")
           )
         ),
         actionButton("datasetUpdate", "Update Dataset"),
@@ -436,7 +437,7 @@ ui <- dashboardPage(
                                 min = 1,
                                 max = 10,
                                 step = 0.5,
-                                value = "3"
+                                value = 3
                               ),
                               checkboxInput("transparentOrdinatePlot", "Transparent background", value = TRUE)
                             )),
@@ -521,7 +522,7 @@ ui <- dashboardPage(
                                  min = 1,
                                  max = 10,
                                  step = 0.5,
-                                 value = "3"
+                                 value = 3
                                ),
                                checkboxInput("transparentTaxaOrd", "Transparent background", value = TRUE)
                              )),
